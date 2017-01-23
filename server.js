@@ -1,8 +1,17 @@
+var bodyParser = require('body-parser');
 var express = require('express');
 var app = express();
-var PORT = 3000;
+var PORT = process.env.PORT || 3000;
 
-app.get('/', function (req, res) {
-    res.send('Success');
+var pages = require('./app/routing/htmlRoutes');
+
+app.use(pages);
+
+app.use(bodyParser.json());
+
+
+
+app.listen(PORT, function(){
+    console.log('App listening on PORT: ' + PORT);
 });
-app.listen(PORT);
+
