@@ -4,8 +4,8 @@ var path = require('path');
 
 var data = require('../data/friend');
 
-router.get('/survey/friend',function(req, res){
-    res.send('DATA SENT');
+router.get('/api/friend',function(req, res){
+    res.send(data);
 });
 
 
